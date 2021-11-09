@@ -1,0 +1,27 @@
+body {
+  background-color: darkcyan;
+}
+
+#heading {
+  color: brown;
+}
+
+#editButton {
+  left: 150px;
+}
+
+.easy {
+  background-color: green;
+}
+
+.medium {
+  background-color: cyan;
+}
+
+.hard {
+  background-color: red;
+}
+
+.hidden {
+  display: none;
+}
