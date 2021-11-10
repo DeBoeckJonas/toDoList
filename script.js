@@ -34,7 +34,6 @@ const toDo4 = document.querySelector("#toDoList4");
 const hard4 = document.querySelector("#hard4");
 const medium4 = document.querySelector("#medium4");
 const easy4 = document.querySelector("#easy4");
-
 const removeTask4 = document.querySelector("#remove4");
 
 ////////change toDoList////////
@@ -42,82 +41,100 @@ function updatePrompt() {
   update = prompt("New to do list:");
 }
 
+function updateToDo(a) {
+  a.textContent = update;
+}
+
 editButton.addEventListener("click", function () {
   updatePrompt();
-  toDo.textContent = update;
+  updateToDo(toDo);
 });
 editButton2.addEventListener("click", function () {
   updatePrompt();
-  toDo2.textContent = update;
+  updateToDo(toDo2);
 });
 editButton3.addEventListener("click", function () {
   updatePrompt();
-  toDo3.textContent = update;
+  updateToDo(toDo3);
 });
 editButton4.addEventListener("click", function () {
   updatePrompt();
-  toDo4.textContent = update;
+  updateToDo(toDo4);
 });
 
 ////////change color of todo based on difficulty////////
+function toDoColor(a, b) {
+  a.style.color = b;
+}
+
 hard.addEventListener("click", function () {
-  toDo.style.color = "red";
+  toDoColor(toDo, "red");
 });
 medium.addEventListener("click", function () {
-  toDo.style.color = "cyan";
+  toDoColor(toDo, "cyan");
 });
 easy.addEventListener("click", function () {
-  toDo.style.color = "chartreuse";
+  toDoColor(toDo, "chartreuse");
 });
 
 hard2.addEventListener("click", function () {
-  toDo2.style.color = "red";
+  toDoColor(toDo2, "red");
 });
 medium2.addEventListener("click", function () {
-  toDo2.style.color = "cyan";
+  toDoColor(toDo2, "cyan");
 });
 easy2.addEventListener("click", function () {
-  toDo2.style.color = "chartreuse";
+  toDoColor(toDo2, "chartreuse");
 });
 
 hard3.addEventListener("click", function () {
-  toDo3.style.color = "red";
+  toDoColor(toDo3, "red");
 });
 medium3.addEventListener("click", function () {
-  toDo3.style.color = "cyan";
+  toDoColor(toDo3, "cyan");
 });
 easy3.addEventListener("click", function () {
-  toDo3.style.color = "chartreuse";
+  toDoColor(toDo3, "chartreuse");
 });
 
 hard4.addEventListener("click", function () {
-  toDo4.style.color = "red";
+  toDoColor(toDo4, "red");
 });
 medium4.addEventListener("click", function () {
-  toDo4.style.color = "cyan";
+  toDoColor(toDo4, "cyan");
 });
 easy4.addEventListener("click", function () {
-  toDo4.style.color = "chartreuse";
+  toDoColor(toDo4, "chartreuse");
 });
 
 /////////add and remove task/////////
+function changeHidden(a) {
+  a.classList.toggle("hidden");
+}
+
 addTask.addEventListener("click", function () {
-  div2.classList.remove("hidden");
+  changeHidden(div2);
+  changeHidden(addTask);
 });
 removeTask2.addEventListener("click", function () {
-  div2.classList.add("hidden");
+  changeHidden(div2);
+  changeHidden(addTask);
 });
 
 addTask2.addEventListener("click", function () {
-  div3.classList.remove("hidden");
+  changeHidden(div3);
+  changeHidden(addTask2);
 });
 removeTask3.addEventListener("click", function () {
-  div3.classList.add("hidden");
+  changeHidden(div3);
+  changeHidden(addTask2);
 });
 
 addTask3.addEventListener("click", function () {
-  div4.classList.remove("hidden");
+  changeHidden(div4);
+  changeHidden(addTask3);
 });
 removeTask4.addEventListener("click", function () {
-  div4.classList.add("hidden");
+  changeHidden(div4);
+  changeHidden(addTask3);
 });
