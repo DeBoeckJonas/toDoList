@@ -3,7 +3,7 @@ body {
 }
 
 #heading {
-  color: rgb(192, 88, 88);
+  color: black;
 }
 
 #editButton {
@@ -40,4 +40,8 @@ body {
 
 .backgroundProperties {
   margin: 5px;
+}
+
+#information {
+  font-size: 30px;
 }

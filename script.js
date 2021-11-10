@@ -6,10 +6,14 @@ let rValue;
 let bValue;
 let gValue;
 let imgURL;
+let keyIndex;
 const body = document.body;
-
-const addButton = document.querySelector(".addButton");
-const removeButton = document.querySelector(".removeButton");
+const mainBody = document.querySelector("#mainBody");
+const inputBody = document.querySelector("#inputBody");
+const inputHere = document.querySelector("#inputHere");
+const submitButton = document.querySelector("#submitButton");
+const information = document.querySelector("#information");
+const heading = document.querySelector("#heading");
 
 const div = document.getElementById("div");
 const addTask = document.querySelector("#addMore");
@@ -51,7 +55,7 @@ const backgroundImage = document.querySelector("#backgroundImage");
 
 ////////change toDoList////////
 function updatePrompt() {
-  update = prompt("New to do list:");
+  update = inputBody.textContent;
 }
 
 function updateToDo(a) {
@@ -59,20 +63,85 @@ function updateToDo(a) {
 }
 
 editButton.addEventListener("click", function () {
-  updatePrompt();
-  updateToDo(toDo);
+  mainBody.classList.add("hidden");
+  inputBody.classList.remove("hidden");
+  information.textContent =
+    "Enter your task in the empty field, then press submit to make the changes!";
+  keyIndex = 1;
 });
 editButton2.addEventListener("click", function () {
-  updatePrompt();
-  updateToDo(toDo2);
+  mainBody.classList.add("hidden");
+  inputBody.classList.remove("hidden");
+  information.textContent =
+    "Enter your task in the empty field, then press submit to make the changes!";
+  keyIndex = 2;
 });
 editButton3.addEventListener("click", function () {
-  updatePrompt();
-  updateToDo(toDo3);
+  mainBody.classList.add("hidden");
+  inputBody.classList.remove("hidden");
+  information.textContent =
+    "Enter your task in the empty field, then press submit to make the changes!";
+  keyIndex = 3;
 });
 editButton4.addEventListener("click", function () {
-  updatePrompt();
-  updateToDo(toDo4);
+  mainBody.classList.add("hidden");
+  inputBody.classList.remove("hidden");
+  information.textContent =
+    "Enter your task in the empty field, then press submit to make the changes!";
+  keyIndex = 4;
+});
+
+submitButton.addEventListener("click", function () {
+  if (keyIndex == 5) {
+    rValue = Number(inputHere.value);
+    keyIndex = 6;
+    inputHere.value = "Type here";
+    information.textContent =
+      "Enter your green value! (a number between 0 and 255)";
+    return rValue;
+  } else if (keyIndex == 6) {
+    gValue = Number(inputHere.value);
+    keyIndex = 7;
+    inputHere.value = "Type here";
+    information.textContent =
+      "Enter your blue value! (a number between 0 and 255)";
+    return gValue;
+  } else if (keyIndex == 7) {
+    bValue = Number(inputHere.value);
+    mainBody.classList.remove("hidden");
+    inputBody.classList.add("hidden");
+    inputHere.value = "Type here";
+    body.style.backgroundImage = null;
+    body.style.backgroundColor = `rgb(${rValue}, ${gValue}, ${bValue})`;
+    if (rValue + bValue + gValue <= 200) {
+      information.style.color = "white";
+      heading.style.color = "white";
+    } else {
+      information.style.color = "black";
+      heading.style.color = "black";
+    }
+    return bValue;
+  } else if (keyIndex == 8) {
+    imgURL = inputHere.value;
+    body.style.opacity = null;
+    body.style.backgroundColor = null;
+    body.style.backgroundImage = `url(${imgURL})`;
+    mainBody.classList.remove("hidden");
+    inputBody.classList.add("hidden");
+  } else {
+    update = inputHere.value;
+    if (keyIndex == 1) {
+      updateToDo(toDo);
+    } else if (keyIndex == 2) {
+      updateToDo(toDo2);
+    } else if (keyIndex == 3) {
+      updateToDo(toDo3);
+    } else if (keyIndex == 4) {
+      updateToDo(toDo4);
+    }
+    mainBody.classList.remove("hidden");
+    inputBody.classList.add("hidden");
+  }
 });
 
 ////////change color of todo based on difficulty////////
@@ -231,16 +300,17 @@ removeTask4.addEventListener("click", function () {
 
 /////////Change background color/////////
 backgroundColor.addEventListener("click", function () {
-  rValue = prompt("R value:");
-  gValue = prompt("G value:");
-  bValue = prompt("B value:");
-  body.style.backgroundImage = null;
-  body.style.backgroundColor = `rgb(${rValue}, ${gValue}, ${bValue})`;
+  mainBody.classList.add("hidden");
+  inputBody.classList.remove("hidden");
+  information.textContent =
+    "Enter your red value! (a number between 0 and 255)";
+  keyIndex = 5;
 });
 
 backgroundImage.addEventListener("click", function () {
-  imgURL = prompt("Paste image URL");
-  body.style.opacity = null;
-  body.style.backgroundColor = null;
-  body.style.backgroundImage = `url(${imgURL})`;
+  mainBody.classList.add("hidden");
+  inputBody.classList.remove("hidden");
+  information.textContent =
+    "Paste the URL of the image you'd like to use as background! (Careful, a black or white image may cause some text to be invisible. You can always change it back to rgb values with it's corresponding button!)";
+  keyIndex = 8;
 });
