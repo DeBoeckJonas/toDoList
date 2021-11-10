@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta content="utf-8" http-equiv="encoding" />
     <link rel="stylesheet" href="style.css" />
     <title>Tasklist</title>
   </head>
@@ -9,7 +11,7 @@
     <!-- all buttons div button -->
     <div class="buttons">
       <!-- first button -->
-      <div>
+      <div id="div">
         <h1 id="toDoList">To do</h1>
         <button id="editButton">EDIT</button>
         <select>
@@ -17,7 +19,7 @@
           <option value="medium" id="medium" class="medium">Medium</option>
           <option value="hard" id="hard" class="hard">Hard</option>
         </select>
-        <button id="addMore">Add task</button>
+        <button id="addMore" class="addButton">Add task</button>
       </div>
       <!-- second button -->
       <div id="div2" class="hidden">
@@ -28,8 +30,8 @@
           <option value="medium" id="medium2" class="medium">Medium</option>
           <option value="hard" id="hard2" class="hard">Hard</option>
         </select>
-        <button id="addMore2">Add task</button>
-        <button id="remove2">Remove task</button>
+        <button id="addMore2" class="addButton">Add task</button>
+        <button id="remove2" class="removeButton">Remove task</button>
       </div>
       <!-- third button -->
       <div id="div3" class="hidden">
@@ -40,8 +42,8 @@
           <option value="medium" id="medium3" class="medium">Medium</option>
           <option value="hard" id="hard3" class="hard">Hard</option>
         </select>
-        <button id="addMore3">Add task</button>
-        <button id="remove3">Remove task</button>
+        <button id="addMore3" class="addButton">Add task</button>
+        <button id="remove3" class="removeButton">Remove task</button>
       </div>
       <!-- fourth button -->
       <div id="div4" class="hidden">
@@ -52,7 +54,8 @@
           <option value="medium" id="medium4" class="medium">Medium</option>
           <option value="hard" id="hard4" class="hard">Hard</option>
         </select>
-        <button id="remove4">Remove task</button>
+        <button id="addMore4" class="addButton">Add task</button>
+        <button id="remove4" class="removeButton">Remove task</button>
       </div>
     </div>
     <!-- Change background color -->

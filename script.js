@@ -8,6 +8,10 @@ let gValue;
 let imgURL;
 const body = document.body;
 
+const addButton = document.querySelector(".addButton");
+const removeButton = document.querySelector(".removeButton");
+
+const div = document.getElementById("div");
 const addTask = document.querySelector("#addMore");
 const editButton = document.querySelector("#editButton");
 const toDo = document.querySelector("#toDoList");
@@ -39,6 +43,7 @@ const toDo4 = document.querySelector("#toDoList4");
 const hard4 = document.querySelector("#hard4");
 const medium4 = document.querySelector("#medium4");
 const easy4 = document.querySelector("#easy4");
+const addTask4 = document.querySelector("#addMore4");
 const removeTask4 = document.querySelector("#remove4");
 
 const backgroundColor = document.querySelector("#backgroundColor");
@@ -116,35 +121,96 @@ easy4.addEventListener("click", function () {
 });
 
 /////////add and remove task/////////
-function changeHidden(a) {
-  a.classList.toggle("hidden");
+function removeHidden(a) {
+  a.classList.remove("hidden");
+}
+function addHidden(a) {
+  a.classList.add("hidden");
+}
+
+function addButtonChange() {
+  if (div2.classList.contains("hidden")) {
+    removeHidden(div2);
+    removeHidden(addTask2);
+  } else if (div3.classList.contains("hidden")) {
+    removeHidden(div3);
+    removeHidden(addTask3);
+  } else if (div4.classList.contains("hidden")) {
+    removeHidden(div4);
+    removeHidden(addTask4);
+  }
+}
+function checkForCorrectAdd() {
+  if (
+    (div.classList.contains("hidden") ||
+      div2.classList.contains("hidden") ||
+      div3.classList.contains("hidden")) &&
+    !div4.classList.contains("hidden")
+  ) {
+    removeHidden(addTask4);
+  } else if (
+    !div3.classList.contains("hidden") &&
+    div4.classList.contains("hidden")
+  ) {
+    removeHidden(addTask3);
+    addHidden(addTask);
+    addHidden(addTask2);
+  } else if (
+    !div2.classList.contains("hidden") &&
+    div4.classList.contains("hidden") &&
+    div3.classList.contains("hidden")
+  ) {
+    removeHidden(addTask2);
+    addHidden(addTask);
+  } else if (
+    !div.classList.contains("hidden") &&
+    div2.classList.contains("hidden") &&
+    div4.classList.contains("hidden") &&
+    div3.classList.contains("hidden")
+  ) {
+    removeHidden(addTask);
+    console.log("e");
+  } else if (
+    !div.classList.contains("hidden") &&
+    !div2.classList.contains("hidden") &&
+    !div3.classList.contains("hidden") &&
+    !div4.classList.contains("hidden")
+  ) {
+    addHidden(addTask4);
+    addHidden(addTask3);
+    addHidden(addTask2);
+    addHidden(addTask);
+  }
 }
 
 addTask.addEventListener("click", function () {
-  changeHidden(div2);
-  changeHidden(addTask);
+  addButtonChange();
+  checkForCorrectAdd();
 });
-removeTask2.addEventListener("click", function () {
-  changeHidden(div2);
-  changeHidden(addTask);
+addTask2.addEventListener("click", function () {
+  addButtonChange();
+  checkForCorrectAdd();
+});
+addTask3.addEventListener("click", function () {
+  addButtonChange();
+  checkForCorrectAdd();
+});
+addTask4.addEventListener("click", function () {
+  addButtonChange();
+  checkForCorrectAdd();
 });
 
-addTask2.addEventListener("click", function () {
-  changeHidden(div3);
-  changeHidden(addTask2);
+removeTask2.addEventListener("click", function () {
+  addHidden(div2);
+  checkForCorrectAdd();
 });
 removeTask3.addEventListener("click", function () {
-  changeHidden(div3);
-  changeHidden(addTask2);
-});
-
-addTask3.addEventListener("click", function () {
-  changeHidden(div4);
-  changeHidden(addTask3);
+  addHidden(div3);
+  checkForCorrectAdd();
 });
 removeTask4.addEventListener("click", function () {
-  changeHidden(div4);
-  changeHidden(addTask3);
+  addHidden(div4);
+  checkForCorrectAdd();
 });
 
 /////////Change background color/////////
