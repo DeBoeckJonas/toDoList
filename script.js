@@ -8,12 +8,15 @@ let gValue;
 let imgURL;
 let keyIndex;
 const body = document.body;
+const drumbox = document.querySelector("#drumbox");
 const mainBody = document.querySelector("#mainBody");
 const inputBody = document.querySelector("#inputBody");
 const inputHere = document.querySelector("#inputHere");
 const submitButton = document.querySelector("#submitButton");
 const information = document.querySelector("#information");
 const heading = document.querySelector("#heading");
+const goToMusicPlayer = document.querySelector("#goToMusicPlayer");
+const returnToMain = document.querySelector("#returnToMain");
 
 const div = document.getElementById("div");
 const addTask = document.querySelector("#addMore");
@@ -368,4 +371,70 @@ backgroundImage.addEventListener("click", function () {
   information.textContent =
     "Paste the URL of the image you'd like to use as background! (Careful, a black or white image may cause some text to be invisible. You can always change it back to rgb values with it's corresponding button!)";
   keyIndex = 8;
+});
+
+/////////DRUMKIT/////////
+goToMusicPlayer.addEventListener("click", function () {
+  removeHidden(drumbox);
+  addHidden(mainBody);
+  if (!drumbox.classList.contains("hidden")) {
+    document.addEventListener("keyup", function (event) {
+      switch (event.keyCode) {
+        case 69: {
+          const myAudio = new Audio("sounds/UK_KICK-flat.mp3");
+          myAudio.play();
+          break;
+        }
+        case 82: {
+          const myAudio = new Audio("sounds/UK_KICK-gated.mp3");
+          myAudio.play();
+          break;
+        }
+        case 84: {
+          const myAudio = new Audio("sounds/UK_KICK-lowthud.mp3");
+          myAudio.play();
+          break;
+        }
+        case 89: {
+          const myAudio = new Audio("sounds/UK_RIDE-hard.mp3");
+          myAudio.play();
+          break;
+        }
+        case 68: {
+          const myAudio = new Audio("sounds/UK_RIM.mp3");
+          myAudio.play();
+          break;
+        }
+        case 70: {
+          const myAudio = new Audio("sounds/UK_SNARE-slam.mp3");
+          myAudio.play();
+          break;
+        }
+        case 71: {
+          const myAudio = new Audio("sounds/UK_TOM-hi.mp3");
+          myAudio.play();
+          break;
+        }
+        case 72: {
+          const myAudio = new Audio("sounds/UK_TOM-low.mp3");
+          myAudio.play();
+          break;
+        }
+        case 86: {
+          const myAudio = new Audio("sounds/UK_TOM-med.mp3");
+          myAudio.play();
+          break;
+        }
+        case 66: {
+          const myAudio = new Audio("sounds/UK_CRASH.mp3");
+          myAudio.play();
+          break;
+        }
+      }
+    });
+  }
+});
+returnToMain.addEventListener("click", function () {
+  addHidden(drumbox);
+  removeHidden(mainBody);
 });
