@@ -182,35 +182,51 @@ function checkForCorrectAdd() {
     addHidden(addTask);
   }
 }
+function checkForNoDouble() {
+  if (
+    !addTask4.classList.contains("hidden") &&
+    !div4.classList.contains("hidden")
+  ) {
+    addHidden(addTask3);
+    addHidden(addTask2);
+  }
+}
 
 addTask.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
+  checkForNoDouble();
 });
 addTask2.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
+  checkForNoDouble();
 });
 addTask3.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
+  checkForNoDouble();
 });
 addTask4.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
+  checkForNoDouble();
 });
 
 removeTask2.addEventListener("click", function () {
   addHidden(div2);
   checkForCorrectAdd();
+  checkForNoDouble();
 });
 removeTask3.addEventListener("click", function () {
   addHidden(div3);
   checkForCorrectAdd();
+  checkForNoDouble();
 });
 removeTask4.addEventListener("click", function () {
   addHidden(div4);
   checkForCorrectAdd();
+  checkForNoDouble();
 });
 
 /////////Change background color/////////
