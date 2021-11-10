@@ -17,6 +17,7 @@ const heading = document.querySelector("#heading");
 
 const div = document.getElementById("div");
 const addTask = document.querySelector("#addMore");
+const removeTask = document.querySelector("#remove1");
 const editButton = document.querySelector("#editButton");
 const toDo = document.querySelector("#toDoList");
 const hard = document.querySelector("#hard");
@@ -198,7 +199,10 @@ function addHidden(a) {
 }
 
 function addButtonChange() {
-  if (div2.classList.contains("hidden")) {
+  if (div.classList.contains("hidden")) {
+    removeHidden(div);
+    removeHidden(addTask);
+  } else if (div2.classList.contains("hidden")) {
     removeHidden(div2);
     removeHidden(addTask2);
   } else if (div3.classList.contains("hidden")) {
@@ -217,6 +221,7 @@ function checkForCorrectAdd() {
     !div4.classList.contains("hidden")
   ) {
     removeHidden(addTask4);
+    addHidden(addTask);
   } else if (
     !div3.classList.contains("hidden") &&
     div4.classList.contains("hidden")
@@ -238,7 +243,6 @@ function checkForCorrectAdd() {
     div3.classList.contains("hidden")
   ) {
     removeHidden(addTask);
-    console.log("e");
   } else if (
     !div.classList.contains("hidden") &&
     !div2.classList.contains("hidden") &&
@@ -260,42 +264,93 @@ function checkForNoDouble() {
     addHidden(addTask2);
   }
 }
+function ifOnlyOne() {
+  if (
+    !div.classList.contains("hidden") &&
+    div2.classList.contains("hidden") &&
+    div3.classList.contains("hidden") &&
+    div4.classList.contains("hidden")
+  ) {
+    addHidden(removeTask);
+  } else if (
+    div.classList.contains("hidden") &&
+    !div2.classList.contains("hidden") &&
+    div3.classList.contains("hidden") &&
+    div4.classList.contains("hidden")
+  ) {
+    addHidden(removeTask2);
+  } else if (
+    div.classList.contains("hidden") &&
+    div2.classList.contains("hidden") &&
+    !div3.classList.contains("hidden") &&
+    div4.classList.contains("hidden")
+  ) {
+    addHidden(removeTask3);
+  } else if (
+    div.classList.contains("hidden") &&
+    div2.classList.contains("hidden") &&
+    div3.classList.contains("hidden") &&
+    !div4.classList.contains("hidden")
+  ) {
+    addHidden(removeTask4);
+  } else {
+    removeHidden(removeTask);
+    removeHidden(removeTask2);
+    removeHidden(removeTask3);
+    removeHidden(removeTask4);
+  }
+}
+
+addHidden(removeTask);
 
 addTask.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
   checkForNoDouble();
+  ifOnlyOne();
 });
 addTask2.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
   checkForNoDouble();
+  ifOnlyOne();
 });
 addTask3.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
   checkForNoDouble();
+  ifOnlyOne();
 });
 addTask4.addEventListener("click", function () {
   addButtonChange();
   checkForCorrectAdd();
   checkForNoDouble();
+  ifOnlyOne();
 });
 
+removeTask.addEventListener("click", function () {
+  addHidden(div);
+  checkForCorrectAdd();
+  checkForNoDouble();
+  ifOnlyOne();
+});
 removeTask2.addEventListener("click", function () {
   addHidden(div2);
   checkForCorrectAdd();
   checkForNoDouble();
+  ifOnlyOne();
 });
 removeTask3.addEventListener("click", function () {
   addHidden(div3);
   checkForCorrectAdd();
   checkForNoDouble();
+  ifOnlyOne();
 });
 removeTask4.addEventListener("click", function () {
   addHidden(div4);
   checkForCorrectAdd();
   checkForNoDouble();
+  ifOnlyOne();
 });
 
 /////////Change background color/////////
