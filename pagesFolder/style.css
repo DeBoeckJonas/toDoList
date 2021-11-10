@@ -1,0 +1,47 @@
+body {
+  background-color: darkslategray;
+}
+
+#heading {
+  color: black;
+}
+
+#editButton {
+  left: 150px;
+}
+
+.easy {
+  background-color: green;
+}
+
+.medium {
+  background-color: cyan;
+}
+
+.hard {
+  background-color: red;
+}
+
+.hidden {
+  display: none;
+}
+
+.buttons {
+  margin: 5px;
+  padding: 5px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  background-color: darkcyan;
+  border: darkviolet;
+  border-style: solid;
+  border-width: 5px;
+  display: inline-block;
+}
+
+.backgroundProperties {
+  margin: 5px;
+}
+
+#information {
+  font-size: 30px;
+}
