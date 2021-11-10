@@ -1,9 +1,9 @@
 body {
-  background-color: darkcyan;
+  background-color: darkslategray;
 }
 
 #heading {
-  color: brown;
+  color: rgb(192, 88, 88);
 }
 
 #editButton {
@@ -24,4 +24,20 @@ body {
 
 .hidden {
   display: none;
+}
+
+.buttons {
+  margin: 5px;
+  padding: 5px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  background-color: darkcyan;
+  border: darkviolet;
+  border-style: solid;
+  border-width: 5px;
+  display: inline-block;
+}
+
+.backgroundProperties {
+  margin: 5px;
 }

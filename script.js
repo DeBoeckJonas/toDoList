@@ -2,6 +2,11 @@
 
 ////////declare variables////////
 let update;
+let rValue;
+let bValue;
+let gValue;
+let imgURL;
+const body = document.body;
 
 const addTask = document.querySelector("#addMore");
 const editButton = document.querySelector("#editButton");
@@ -35,6 +40,9 @@ const hard4 = document.querySelector("#hard4");
 const medium4 = document.querySelector("#medium4");
 const easy4 = document.querySelector("#easy4");
 const removeTask4 = document.querySelector("#remove4");
+
+const backgroundColor = document.querySelector("#backgroundColor");
+const backgroundImage = document.querySelector("#backgroundImage");
 
 ////////change toDoList////////
 function updatePrompt() {
@@ -137,4 +145,20 @@ addTask3.addEventListener("click", function () {
 removeTask4.addEventListener("click", function () {
   changeHidden(div4);
   changeHidden(addTask3);
+});
+
+/////////Change background color/////////
+backgroundColor.addEventListener("click", function () {
+  rValue = prompt("R value:");
+  gValue = prompt("G value:");
+  bValue = prompt("B value:");
+  body.style.backgroundImage = null;
+  body.style.backgroundColor = `rgb(${rValue}, ${gValue}, ${bValue})`;
+});
+
+backgroundImage.addEventListener("click", function () {
+  imgURL = prompt("Paste image URL");
+  body.style.opacity = null;
+  body.style.backgroundColor = null;
+  body.style.backgroundImage = `url(${imgURL})`;
 });
